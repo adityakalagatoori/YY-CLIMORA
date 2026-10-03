@@ -1,0 +1,28 @@
+name: Build CLIMORA Technical Report
+
+on:
+  push:
+    paths:
+      - 'report/**'
+      - '.github/workflows/build-report.yml'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX report
+        uses: dante-ev/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: report
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Upload compiled PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: CLIMORA-Technical-Report
+          path: report/main.pdf
