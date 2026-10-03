@@ -1,6 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 
 % ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
@@ -23,6 +25,9 @@
 \definecolor{climoragreen}{HTML}{0B2E20}
 \definecolor{climoraamber}{HTML}{FFB800}
 \definecolor{climoralight}{HTML}{E8F5EC}
+
+% ---------- Rupee symbol (NOT a built-in LaTeX command -- must be defined) ----------
+\newcommand{\textrupee}{Rs.\,}
 
 % ---------- Hyperref setup ----------
 \hypersetup{
